@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#555" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app_main.css">
+</head>
+<body>
+
+<div id="loading">
+    <div class=container>
+        <h3 class="h3 text-center">Loading ...</h3>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="loader4">
+                    <span class="loader loader-1"></span>
+                    <span class="loader loader-2"></span>
+                    <span class="loader loader-3"></span>
+                    <span class="loader loader-4"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header>
+  <div class="navbar navbar-dark bg-dark box-shadow">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+        <strong>Hair dying AR</strong>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main role="main">
+    <div class="container mt-3">
+        <div class="text-center">            
+            <video id="camera" class="align-self-center rounded-frame" autoplay playsinline style="display: none;"></video>
+            <canvas id="dnn-output" class="align-self-center rounded-frame"></canvas>
+        </div>
+        <div class="row mt-1">
+            <span class="col-1"></span>
+            <button type="button" id="btn-search" class="col-10 btn btn-primary btn-lg btn-block" onclick="choosePhoto()">Choose Photo</button>
+            <input type="file" accept="image/*" id="img_upload" style="display:none">
+            <span class="col-1"></span>
+        </div>
+
+        <div class="row mt-5 gallery">
+            <img src="" id="img-red" class="rounded-frame"/>
+        </div>
+        <div class="row mt-3 gallery">
+            <img src="" id="img-green" class="rounded-frame"/>
+        </div>
+        <div class="row mt-3 gallery">
+            <img src="" id="img-blue" class="rounded-frame"/>
+        </div>
+        <div class="row mt-3 gallery">
+            <img src="" id="img-yellow" class="rounded-frame"/>
+        </div>
+        <div class="row mt-3 gallery">
+            <img src="" id="img-cyan" class="rounded-frame"/>
+        </div>
+        <div class="row mt-3 gallery">
+            <img src="" id="img-pink" class="rounded-frame"/>
+        </div>
+    </div>
+</main>
+
+<div class="modal fade" id="modal-upload" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Upload Photo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <canvas id="selected-photo" class="align-self-center rounded-frame"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="uploadPhoto()">Upload</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="startProcess()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script defer src="js/jquery-3.3.1.min.js"></script>
+<script defer src="js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+<script defer src="js/app_main.js"></script>
+</body>
+</html>

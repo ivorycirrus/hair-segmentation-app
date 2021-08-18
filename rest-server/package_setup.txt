@@ -1,0 +1,11 @@
+conda create -n haircpu python=3.6
+conda activate haircpu
+
+pip install tensorflow==1.13.1
+pip install flask flask_cors
+pip install scikit-image
+pip install opencv-python
+pip install keras==2.2.4
+pip install h5py==2.10.0
+
+sudo apt-get install libgl1-mesa-glx
